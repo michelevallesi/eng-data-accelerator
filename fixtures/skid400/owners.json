@@ -1,0 +1,11 @@
+{
+  "byTool": {
+    "Polarion": "requirements-engineer",
+    "Capella": "systems-engineer",
+    "COMOS": "process-engineer",
+    "Teamcenter": "product-engineer",
+    "Ansys": "simulation-engineer"
+  },
+  "fallback": "area-lead",
+  "note": "Recipient resolution rules (CR-25). Programme configuration, not code."
+}

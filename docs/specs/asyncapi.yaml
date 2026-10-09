@@ -1,0 +1,277 @@
+asyncapi: 3.0.0
+info:
+  title: Engineering Data Accelerator — event contracts
+  version: 0.2.0
+  description: |
+    AsyncAPI contract for every CloudEvent the accelerator publishes to Kafka
+    (FR-B09, FR-B11, ADR-0026). Each operation lists the topic, the partition key,
+    the mandatory CloudEvent attributes, the extensions the EDA stack relies on,
+    and payload semantics.
+
+    All events use the CloudEvents 1.0 binary content mode on the wire (attributes
+    carried as Kafka headers; data in the record value). After a Kafka round-trip,
+    the CloudEvents Java SDK presents integer-valued extensions (such as
+    `edaversion` or `edatrsorder`) as **strings** — assert with `hasToString("…")`
+    or parse to a number, do not expect `Integer`.
+
+servers:
+  localDev:
+    host: localhost:9092
+    protocol: kafka
+    description: Docker Compose dev stack (ADR-0015).
+
+channels:
+  polarionResourceChanges:
+    address: eda.polarion.changes
+    description: Resource-level change events from the Polarion adapter (S04).
+    messages:
+      resourceChanged:
+        $ref: '#/components/messages/ResourceChanged'
+
+  polarionResourceDlq:
+    address: eda.polarion.dlq
+    description: Poison-pill events the Polarion adapter couldn't ship as valid.
+    messages:
+      resourceInvalid:
+        $ref: '#/components/messages/ResourceInvalid'
+
+  teamcenterResourceChanges:
+    address: eda.teamcenter.changes
+    description: Resource-level change events from the Teamcenter adapter (S05).
+    messages:
+      resourceChanged:
+        $ref: '#/components/messages/ResourceChanged'
+
+  teamcenterResourceDlq:
+    address: eda.teamcenter.dlq
+    description: Poison-pill events the Teamcenter adapter couldn't ship as valid.
+    messages:
+      resourceInvalid:
+        $ref: '#/components/messages/ResourceInvalid'
+
+  linkStateChanges:
+    address: eda.link.state-changed
+    description: Link-state transitions emitted by the Link Index (S07).
+    messages:
+      linkStateChanged:
+        $ref: '#/components/messages/LinkStateChanged'
+
+operations:
+  publishPolarionResourceChange:
+    action: send
+    channel:
+      $ref: '#/channels/polarionResourceChanges'
+    summary: Emitted by the Polarion adapter when a TRS event is processed.
+    description: |
+      Keyed by the resource URI (FR-B06). CloudEvent `id` is deterministic over
+      `(source, trsOrder, subject)`, so a Kafka replay produces byte-identical
+      ids and downstream dedupe is trivial. Source: `urn:eda:adapter:polarion`.
+
+  publishPolarionResourceInvalid:
+    action: send
+    channel:
+      $ref: '#/channels/polarionResourceDlq'
+    summary: Emitted when SHACL validation fails for a fetched Polarion resource (FR-B05).
+
+  publishTeamcenterResourceChange:
+    action: send
+    channel:
+      $ref: '#/channels/teamcenterResourceChanges'
+    summary: Emitted by the Teamcenter adapter when a TRS event is processed.
+    description: |
+      Keyed by the resource URI (FR-B06). CloudEvent `id` is deterministic over
+      `(source, trsOrder, subject)`. Source: `urn:eda:adapter:teamcenter`.
+      Teamcenter revisions each have their own URI (ADR-0003); a `revise`
+      mutation is observed as a `CREATION` event with a brand-new URI.
+
+  publishTeamcenterResourceInvalid:
+    action: send
+    channel:
+      $ref: '#/channels/teamcenterResourceDlq'
+    summary: Emitted when SHACL validation fails for a fetched Teamcenter resource.
+
+  publishLinkStateChanged:
+    action: send
+    channel:
+      $ref: '#/channels/linkStateChanges'
+    summary: Emitted by the Link Index on every link transition (S07, ADR-0016).
+    description: |
+      Keyed by the link id (so all transitions for one link land in the same
+      partition, in order). CloudEvent `id` is deterministic over
+      `(linkId, prevState, newState, cause)`, so replays dedupe by id.
+      Source: `urn:eda:service:link-index`.
+
+      Transitions covered:
+        - `proposed → asserted` on explicit confirm (AD-06). Actor carried in
+          `ce_edaactor`.
+        - `asserted|validated → superseded` when a resource.changed with a
+          bumped version arrives at either endpoint (FR-S08). The event's
+          `ce_edacause` is `resource-changed:<ce_id>`; the Link Index also
+          opens a disposition for the resolved owner (CR-25).
+        - `* → dangling` on a resource.changed DELETION for either endpoint
+          (FR-F06, FR-S07). The link is never removed.
+        - Disposition resolution: `confirmed` re-asserts the link on the new
+          version; other outcomes (`updated`, `to-rerun`, `not-applicable`)
+          close the disposition without touching the link. The
+          `ce_edadispositionoutcome` extension carries the outcome in all four
+          cases.
+
+components:
+  messages:
+    ResourceChanged:
+      name: ResourceChanged
+      title: eda.resource.changed
+      summary: One resource version was created, modified, or deleted.
+      contentType: application/cloudevents+json
+      bindings:
+        kafka:
+          key:
+            type: string
+            description: Resource URI (ADR-0018 — concept or version URI).
+      traits:
+        - $ref: '#/components/messageTraits/CloudEvent'
+      headers:
+        type: object
+        properties:
+          ce_type:
+            const: eda.resource.changed
+          ce_edakind:
+            type: string
+            enum: [CREATION, MODIFICATION, DELETION]
+          ce_edaversion:
+            type: string
+            description: Resource revision number as emitted by the source tool.
+          ce_edamappingversion:
+            type: string
+            description: Semver of the native→OSLC mapping used to build the payload.
+          ce_edasourcetime:
+            type: string
+            format: date-time
+            description: RFC3339 timestamp from the adapter clock at publish time.
+          ce_edatrsorder:
+            type: string
+            description: Monotonic TRS order from the source. Enables ordering.
+      payload:
+        type: object
+        description: |
+          **MODIFICATION and CREATION events** carry the raw JSON-LD representation
+          fetched from the source as the data body.
+          **DELETION events** have a `null` body (`serializedValueSize = -1`
+          on the Kafka wire). The CloudEvents Java SDK `CloudEventDeserializer`
+          returns `null` for the deserialized event in that case — downstream must
+          read the `ce_subject` and `ce_edakind` headers directly rather than
+          calling `.value()`.
+
+    LinkStateChanged:
+      name: LinkStateChanged
+      title: eda.link.state-changed
+      summary: One link transitioned to a new state.
+      contentType: application/cloudevents+json
+      bindings:
+        kafka:
+          key:
+            type: string
+            description: Link id (so one link's transitions share a partition).
+      traits:
+        - $ref: '#/components/messageTraits/CloudEvent'
+      headers:
+        type: object
+        properties:
+          ce_type:
+            const: eda.link.state-changed
+          ce_edarelation:
+            type: string
+            description: Link relation name (e.g. `satisfiedBy`).
+          ce_edaprevstate:
+            type: string
+            enum: [proposed, asserted, validated, superseded, dangling]
+            description: Previous state; absent for newly-created links.
+          ce_edanewstate:
+            type: string
+            enum: [proposed, asserted, validated, superseded, dangling]
+          ce_edaprevsourceversion:
+            type: string
+          ce_edaprevtargetversion:
+            type: string
+          ce_edanewsourceversion:
+            type: string
+          ce_edanewtargetversion:
+            type: string
+          ce_edacause:
+            type: string
+            description: Free-form provenance string; e.g. `api-confirm`,
+              `resource-changed:<ce_id>`, `resource-deleted:<ce_id>`,
+              `disposition-confirmed:<id>`.
+          ce_edaactor:
+            type: string
+            description: User id for human-driven transitions. Required for
+              `proposed → asserted` and all disposition resolutions.
+          ce_edadispositionoutcome:
+            type: string
+            enum: [confirmed, updated, to-rerun, not-applicable]
+            description: Present only on events that resolve a disposition.
+      payload:
+        description: Null — all state is in headers.
+
+    ResourceInvalid:
+      name: ResourceInvalid
+      title: eda.resource.invalid
+      summary: A resource failed SHACL validation and was routed to the DLQ.
+      contentType: application/cloudevents+json
+      bindings:
+        kafka:
+          key:
+            type: string
+            description: Resource URI the invalid payload was fetched for.
+      traits:
+        - $ref: '#/components/messageTraits/CloudEvent'
+      headers:
+        type: object
+        properties:
+          ce_type:
+            const: eda.resource.invalid
+          ce_edaviolation:
+            type: string
+            description: First SHACL violation message surfaced by the validator.
+          ce_edakind:
+            type: string
+            enum: [CREATION, MODIFICATION, DELETION]
+          ce_edatrsorder:
+            type: string
+      payload:
+        type: object
+        description: |
+          The original JSON-LD payload when a fetched resource failed validation.
+          When invoked without a resource (admin/manual flow), the data is a
+          Kafka tombstone (`serializedValueSize = -1`) and `.value()` deserializes
+          to `null`; downstream reads the headers.
+
+  messageTraits:
+    CloudEvent:
+      bindings:
+        kafka:
+          bindingVersion: 0.5.0
+      headers:
+        type: object
+        required: [ce_specversion, ce_id, ce_source, ce_type, ce_subject, ce_time]
+        properties:
+          ce_specversion:
+            const: '1.0'
+          ce_id:
+            type: string
+            format: uuid
+            description: |
+              Deterministic UUID v3 computed from
+              `md5("<source>:<trsOrder>:<subject>")`. A replay produces the same
+              id; downstream dedupe keys on `ce_id`.
+          ce_source:
+            type: string
+            description: Adapter identifier, e.g. `urn:eda:adapter:polarion` or
+              `urn:eda:adapter:teamcenter`.
+          ce_subject:
+            type: string
+            description: Resource URI (ADR-0018).
+          ce_time:
+            type: string
+            format: date-time
+            description: Publish time at the adapter.

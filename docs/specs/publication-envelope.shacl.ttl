@@ -1,0 +1,41 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix eda:     <https://eda.example.org/ns#> .
+
+# Contract for the minimum publication envelope (FR-G04, FR-G19, FR-G20, FR-G21).
+# The JSON envelope is mapped to this RDF form by the publication API (story P01).
+# Every sh:message is a reason code from publication-reason-codes.md.
+
+eda:PublicationShape a sh:NodeShape ;
+  sh:targetClass eda:Publication ;
+  sh:property [ sh:path eda:resultId ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "IDENTITY_MISSING" ] ;
+  sh:property [ sh:path eda:revision ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "IDENTITY_MISSING" ] ;
+  sh:property [ sh:path eda:programme ; sh:minCount 1 ; sh:message "CONTEXT_MISSING" ] ;
+  sh:property [ sh:path eda:configurationContext ; sh:minCount 1 ; sh:message "CONFIGURATION_MISSING" ] ;
+  sh:property [ sh:path eda:tool ; sh:minCount 1 ; sh:message "CONTEXT_MISSING" ] ;
+  sh:property [ sh:path eda:modelRef ; sh:minCount 1 ; sh:node eda:ModelRefShape ; sh:message "MODEL_REF_REQUIRED" ] ;
+  sh:property [ sh:path prov:wasAttributedTo ; sh:minCount 1 ; sh:message "PROVENANCE_MISSING" ] ;
+  sh:property [ sh:path prov:generatedAtTime ; sh:datatype xsd:dateTime ; sh:minCount 1 ; sh:message "PROVENANCE_MISSING" ] ;
+  sh:property [ sh:path eda:publicationStatus ; sh:in ( eda:published ) ; sh:minCount 1 ; sh:message "MATURITY_INVALID" ] ;
+  sh:property [ sh:path eda:classification ; sh:minCount 1 ; sh:message "SECURITY_MISSING" ] ;
+  sh:property [ sh:path eda:output ; sh:minCount 1 ; sh:node eda:OutputShape ; sh:message "OUTPUT_MISSING" ] ;
+  sh:property [ sh:path prov:used ; sh:minCount 1 ; sh:node eda:InputShape ; sh:message "LINEAGE_MISSING" ] .
+
+eda:ModelRefShape a sh:NodeShape ;
+  sh:property [ sh:path eda:repository ; sh:minCount 1 ; sh:message "MODEL_REF_REQUIRED" ] ;
+  sh:property [ sh:path eda:immutableRef ; sh:minCount 1 ; sh:message "MODEL_REF_REQUIRED" ] .
+
+eda:OutputShape a sh:NodeShape ;
+  sh:property [ sh:path eda:name ; sh:minCount 1 ; sh:message "OUTPUT_MISSING" ] ;
+  sh:property [ sh:path eda:value ; sh:minCount 1 ; sh:message "OUTPUT_MISSING" ] ;
+  sh:property [ sh:path eda:unit ; sh:minCount 1 ; sh:message "UNIT_MISSING" ] .
+
+# An input must be a registered resource with a version, never a typed value.
+eda:InputShape a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:property [ sh:path eda:inputVersion ; sh:minCount 1 ; sh:message "INPUT_UNRESOLVED" ] .
+
+eda:SpreadsheetPublicationShape a sh:NodeShape ;
+  sh:targetClass eda:SpreadsheetPublication ;
+  sh:property [ sh:path eda:template ; sh:minCount 1 ; sh:message "TEMPLATE_REQUIRED" ] .

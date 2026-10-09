@@ -1,0 +1,73 @@
+{
+  "root": "REQ-019",
+  "direction": "downstream",
+  "depth": 3,
+  "partial": false,
+  "nodes": [
+    {
+      "nativeId": "LC-11",
+      "uri": "https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55",
+      "depth": 1,
+      "path": [
+        "REQ-019",
+        "LC-11"
+      ],
+      "viaRelation": "satisfiedBy",
+      "linkState": "asserted",
+      "flagged": false
+    },
+    {
+      "nativeId": "TC-219",
+      "uri": "https://eda.example.org/r/pol/56bc89b7-8900-4678-8e18-e7b42ad0beec",
+      "depth": 1,
+      "path": [
+        "REQ-019",
+        "TC-219"
+      ],
+      "viaRelation": "verifiedBy",
+      "linkState": "asserted",
+      "flagged": false
+    },
+    {
+      "nativeId": "PSV-418",
+      "uri": "https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e",
+      "depth": 2,
+      "path": [
+        "REQ-019",
+        "LC-11",
+        "PSV-418"
+      ],
+      "viaRelation": "allocatedTo",
+      "linkState": "asserted",
+      "flagged": false
+    },
+    {
+      "nativeId": "PT-405",
+      "uri": "https://eda.example.org/r/com/0fabadb8-0f82-4dcb-86f4-d6fda32f881f",
+      "depth": 2,
+      "path": [
+        "REQ-019",
+        "LC-11",
+        "PT-405"
+      ],
+      "viaRelation": "allocatedTo",
+      "linkState": "asserted",
+      "flagged": false
+    },
+    {
+      "nativeId": "400-1002/B",
+      "uri": "https://eda.example.org/r/tc/134541ba-ff70-4387-91b0-1b518c862ae7",
+      "depth": 3,
+      "path": [
+        "REQ-019",
+        "LC-11",
+        "PSV-418",
+        "400-1002/B"
+      ],
+      "viaRelation": "realisedBy",
+      "linkState": "asserted",
+      "flagged": false
+    }
+  ],
+  "note": "Computed from this fixture link set. The PRD figure of 14 artefacts refers to the full project."
+}

@@ -1,0 +1,13 @@
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix dcterms:   <http://purl.org/dc/terms/> .
+@prefix eda:       <https://eda.example.org/ns#> .
+
+<https://eda.example.org/shapes/teamcenter-item#ItemShape>
+    a sh:NodeShape ;
+    sh:targetClass eda:Item ;
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "an Item must declare dcterms:identifier"
+    ] .

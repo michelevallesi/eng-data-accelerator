@@ -1,0 +1,53 @@
+{
+  "envelopeVersion": "1.0",
+  "identity": {
+    "resultId": "SIM-HYD-02",
+    "revision": "1"
+  },
+  "context": {
+    "programme": "AERO-7",
+    "tool": "Simulink"
+  },
+  "configuration": {
+    "configurationContext": "GC-AERO7-WIP"
+  },
+  "content": {
+    "outputs": [
+      {
+        "name": "changeover_time",
+        "value": 1.84,
+        "unit": "s"
+      }
+    ]
+  },
+  "provenance": {
+    "author": "engineer@example.org",
+    "generatedAt": "2026-10-02T10:15:00Z",
+    "modelRef": {
+      "repository": "git:hyd-models",
+      "immutableRef": "4f2a9c1",
+      "parameters": "changeover.sldd"
+    }
+  },
+  "maturity": {
+    "publication": "published"
+  },
+  "security": {
+    "classification": "internal",
+    "exportControl": "none"
+  },
+  "lineage": {
+    "inputs": [
+      {
+        "uri": "https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450",
+        "nativeId": "HYD-REQ-027",
+        "version": "2"
+      },
+      {
+        "uri": "https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f",
+        "nativeId": "LF-29-04",
+        "version": "4"
+      }
+    ]
+  }
+}

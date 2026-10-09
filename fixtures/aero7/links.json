@@ -1,0 +1,79 @@
+[
+  {
+    "id": "https://eda.example.org/link/907a70c3-1012-4037-b64c-e4228c38fb29",
+    "source": "HYD-REQ-012",
+    "target": "LF-29-01",
+    "relation": "satisfiedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/7f150524-34b9-45df-9e77-69b10f4205b4",
+    "source": "HYD-REQ-027",
+    "target": "LF-29-04",
+    "relation": "satisfiedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/c6f87718-6d76-407e-881e-d162ae2eb154",
+    "source": "HYD-REQ-041",
+    "target": "PC-29-10",
+    "relation": "satisfiedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/ec66a787-95e7-41d1-b731-af10506bf2ef",
+    "source": "HYD-REQ-055",
+    "target": "PC-29-10",
+    "relation": "satisfiedBy",
+    "state": "proposed"
+  },
+  {
+    "id": "https://eda.example.org/link/3f98e277-4cbd-47ad-9c90-a9587403e430",
+    "source": "LF-29-01",
+    "target": "29-4410-01",
+    "relation": "allocatedTo",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/c7a2ea20-b2f1-4c94-ae05-319acb5c7427",
+    "source": "LF-29-04",
+    "target": "29-4520-03",
+    "relation": "allocatedTo",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/4cdd2055-930d-4eaf-94f4-733f3e7d1bfb",
+    "source": "PC-29-10",
+    "target": "29-4000-00/C",
+    "relation": "realisedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/57ee05cd-e009-42c7-bebf-f20686734721",
+    "source": "29-4520-03",
+    "target": "CAE-HYD-07",
+    "relation": "analysedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/9be4bcfc-49b6-4a08-b2e6-cc3ababced20",
+    "source": "29-4000-00/C",
+    "target": "CAE-HYD-11",
+    "relation": "analysedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/830e07bc-1e39-4f10-92bd-4acefaecbd38",
+    "source": "29-4410-01",
+    "target": "DMC-AERO7-A-29-10-01-00A-520A-A",
+    "relation": "documentedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/5790f82e-c1d3-4cff-aa3a-f4d46b0a18e8",
+    "source": "HYD-REQ-027",
+    "target": "TP-29-03",
+    "relation": "verifiedBy",
+    "state": "validated"
+  }
+]

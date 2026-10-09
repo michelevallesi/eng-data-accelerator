@@ -1,0 +1,177 @@
+@prefix eda: <https://eda.example.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://eda.example.org/r/pol/6513270e-269e-4d37-b2a7-4de452e6b438> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "HYD-REQ-012" ;
+  dcterms:description "nominal system pressure 3,000 psi" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "HYD-REQ-027" ;
+  dcterms:description "changeover to the electric pump within 2 s" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/9531985d-5d9d-49f8-9818-e811892f902b> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "HYD-REQ-041" ;
+  dcterms:description "system mass no more than 118 kg" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "In review" .
+
+<https://eda.example.org/r/pol/36f675cc-81e7-4ef5-a8e2-5d940ed90475> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "HYD-REQ-055" ;
+  dcterms:description "internal leak detection" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Draft" .
+
+<https://eda.example.org/r/cap/6b0d549b-6f03-475a-9600-a35a099950d8> a eda:Artefact, eda:LogicalFunction ;
+  dcterms:identifier "LF-29-01" ;
+  dcterms:description "generate hydraulic power" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f> a eda:Artefact, eda:LogicalFunction ;
+  dcterms:identifier "LF-29-04" ;
+  dcterms:description "ensure emergency power" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> a eda:Artefact, eda:PhysicalComponent ;
+  dcterms:identifier "PC-29-10" ;
+  dcterms:description "main generation group" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23> a eda:Artefact, eda:Assembly ;
+  dcterms:identifier "29-4000-00/C" ;
+  dcterms:description "hydraulic system 3" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "In review" .
+
+<https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5> a eda:Artefact, eda:Component ;
+  dcterms:identifier "29-4410-01" ;
+  dcterms:description "engine-driven pump (EDP)" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Frozen" ;
+  eda:trl 9 .
+
+<https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf> a eda:Artefact, eda:Component ;
+  dcterms:identifier "29-4520-03" ;
+  dcterms:description "emergency electric pump" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Preliminary" ;
+  eda:trl 5 .
+
+<https://eda.example.org/r/tc/8e81973e-0bec-47b0-b898-d190f9ebdacc> a eda:Artefact, eda:Component ;
+  dcterms:identifier "29-4610-02" ;
+  dcterms:description "EHA actuator" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Released" ;
+  eda:trl 5 .
+
+<https://eda.example.org/r/tc/6b4cb242-4a23-4596-a217-beaddbc496cb> a eda:Artefact, eda:Component ;
+  dcterms:identifier "29-4705-01" ;
+  dcterms:description "smart pressure sensor" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Preliminary" ;
+  eda:trl 8 .
+
+<https://eda.example.org/r/cae/92276658-1e27-41c0-8a6a-63ec24ede6a4> a eda:Artefact, eda:CalculationCase ;
+  dcterms:identifier "CAE-HYD-07" ;
+  dcterms:description "changeover transient" ;
+  eda:tool "Ansys" ;
+  eda:nativeState "published" .
+
+<https://eda.example.org/r/cae/ae97ba94-d0ed-482f-8f6d-05584ef8aa38> a eda:Artefact, eda:CalculationCase ;
+  dcterms:identifier "CAE-HYD-11" ;
+  dcterms:description "manifold fatigue" ;
+  eda:tool "Ansys" ;
+  eda:nativeState "promoted" .
+
+<https://eda.example.org/r/pol/923a7369-94e3-4f91-9a61-dbe22e44158b> a eda:Artefact, eda:TestProcedure ;
+  dcterms:identifier "TP-29-03" ;
+  dcterms:description "bench changeover test" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Approved" .
+
+<https://eda.example.org/r/csdb/18f135d2-5f55-4203-b018-50c5a38fd547> a eda:Artefact, eda:InformationModule ;
+  dcterms:identifier "DMC-AERO7-A-29-10-01-00A-520A-A" ;
+  dcterms:description "EDP removal" ;
+  eda:tool "CSDB" ;
+  eda:nativeState "issue 002, inWork 03" .
+
+<https://eda.example.org/r/pol/6513270e-269e-4d37-b2a7-4de452e6b438> eda:satisfiedBy <https://eda.example.org/r/cap/6b0d549b-6f03-475a-9600-a35a099950d8> .
+<https://eda.example.org/link/907a70c3-1012-4037-b64c-e4228c38fb29> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/6513270e-269e-4d37-b2a7-4de452e6b438> ;
+  eda:target <https://eda.example.org/r/cap/6b0d549b-6f03-475a-9600-a35a099950d8> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450> eda:satisfiedBy <https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f> .
+<https://eda.example.org/link/7f150524-34b9-45df-9e77-69b10f4205b4> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450> ;
+  eda:target <https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/pol/9531985d-5d9d-49f8-9818-e811892f902b> eda:satisfiedBy <https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> .
+<https://eda.example.org/link/c6f87718-6d76-407e-881e-d162ae2eb154> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/9531985d-5d9d-49f8-9818-e811892f902b> ;
+  eda:target <https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/pol/36f675cc-81e7-4ef5-a8e2-5d940ed90475> eda:satisfiedBy <https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> .
+<https://eda.example.org/link/ec66a787-95e7-41d1-b731-af10506bf2ef> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/36f675cc-81e7-4ef5-a8e2-5d940ed90475> ;
+  eda:target <https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:proposed .
+
+<https://eda.example.org/r/cap/6b0d549b-6f03-475a-9600-a35a099950d8> eda:allocatedTo <https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5> .
+<https://eda.example.org/link/3f98e277-4cbd-47ad-9c90-a9587403e430> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/6b0d549b-6f03-475a-9600-a35a099950d8> ;
+  eda:target <https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f> eda:allocatedTo <https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf> .
+<https://eda.example.org/link/c7a2ea20-b2f1-4c94-ae05-319acb5c7427> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/8d116ece-1738-47d9-bd9c-172411e20b8f> ;
+  eda:target <https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> eda:realisedBy <https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23> .
+<https://eda.example.org/link/4cdd2055-930d-4eaf-94f4-733f3e7d1bfb> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/90c192cf-d3ac-44af-8f21-ddb66cad4a26> ;
+  eda:target <https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23> ;
+  eda:relation eda:realisedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf> eda:analysedBy <https://eda.example.org/r/cae/92276658-1e27-41c0-8a6a-63ec24ede6a4> .
+<https://eda.example.org/link/57ee05cd-e009-42c7-bebf-f20686734721> a eda:Link ;
+  eda:source <https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf> ;
+  eda:target <https://eda.example.org/r/cae/92276658-1e27-41c0-8a6a-63ec24ede6a4> ;
+  eda:relation eda:analysedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23> eda:analysedBy <https://eda.example.org/r/cae/ae97ba94-d0ed-482f-8f6d-05584ef8aa38> .
+<https://eda.example.org/link/9be4bcfc-49b6-4a08-b2e6-cc3ababced20> a eda:Link ;
+  eda:source <https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23> ;
+  eda:target <https://eda.example.org/r/cae/ae97ba94-d0ed-482f-8f6d-05584ef8aa38> ;
+  eda:relation eda:analysedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5> eda:documentedBy <https://eda.example.org/r/csdb/18f135d2-5f55-4203-b018-50c5a38fd547> .
+<https://eda.example.org/link/830e07bc-1e39-4f10-92bd-4acefaecbd38> a eda:Link ;
+  eda:source <https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5> ;
+  eda:target <https://eda.example.org/r/csdb/18f135d2-5f55-4203-b018-50c5a38fd547> ;
+  eda:relation eda:documentedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450> eda:verifiedBy <https://eda.example.org/r/pol/923a7369-94e3-4f91-9a61-dbe22e44158b> .
+<https://eda.example.org/link/5790f82e-c1d3-4cff-aa3a-f4d46b0a18e8> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/d23f0824-128b-4f33-8c5c-7fd0a6a3a450> ;
+  eda:target <https://eda.example.org/r/pol/923a7369-94e3-4f91-9a61-dbe22e44158b> ;
+  eda:relation eda:verifiedBy ;
+  eda:validationState eda:validated .

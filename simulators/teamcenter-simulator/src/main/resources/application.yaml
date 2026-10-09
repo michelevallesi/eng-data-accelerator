@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: eda-teamcenter-simulator
+  mvc:
+    contentnegotiation:
+      favor-parameter: false
+
+server:
+  port: ${SERVER_PORT:8083}
+
+eda:
+  base-domain: ${EDA_BASE_DOMAIN:https://eda.example.org}
+  fixtures:
+    scenario: ${EDA_FIXTURES_SCENARIO:skid400}

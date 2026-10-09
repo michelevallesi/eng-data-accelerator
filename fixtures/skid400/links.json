@@ -1,0 +1,128 @@
+[
+  {
+    "id": "https://eda.example.org/link/4ae1fd21-9cd6-4447-a727-c67fb38f0166",
+    "source": "REQ-018",
+    "target": "LC-03",
+    "relation": "satisfiedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/48a7ee6a-26d5-4890-814a-ee173c54530e",
+    "source": "REQ-031",
+    "target": "LC-07",
+    "relation": "satisfiedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/134a08bb-eba5-4a11-8782-54ec9c5d57e0",
+    "source": "REQ-019",
+    "target": "LC-11",
+    "relation": "satisfiedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/300c558d-cb4c-45c2-90bb-8a9713751fe6",
+    "source": "REQ-047",
+    "target": "PC-02",
+    "relation": "satisfiedBy",
+    "state": "proposed"
+  },
+  {
+    "id": "https://eda.example.org/link/9a9b00db-650c-4899-8868-2f45479034e6",
+    "source": "LC-03",
+    "target": "P-401A",
+    "relation": "allocatedTo",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/79caf780-bede-4d81-82f2-9749f1e67210",
+    "source": "LC-07",
+    "target": "P-401B",
+    "relation": "allocatedTo",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/b7d57406-64ea-4bb3-bd5c-21e11f8f2f30",
+    "source": "LC-11",
+    "target": "PSV-418",
+    "relation": "allocatedTo",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/f75d0897-ab83-4d56-a7ee-9d77708bd49c",
+    "source": "LC-11",
+    "target": "PT-405",
+    "relation": "allocatedTo",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/e073caf6-cce3-4d5c-a9f4-ce20b9da4141",
+    "source": "PC-02",
+    "target": "E-403",
+    "relation": "allocatedTo",
+    "state": "proposed"
+  },
+  {
+    "id": "https://eda.example.org/link/c69f2953-ae3d-4461-ad2f-06cf51df9255",
+    "source": "P-401A",
+    "target": "400-1105/C",
+    "relation": "realisedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/929fcd10-5c91-4f5c-b58e-a93e8bdd101f",
+    "source": "P-401B",
+    "target": "400-1105/C",
+    "relation": "realisedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/26f3e2af-88ec-4cc8-8593-b3f975a1ebf2",
+    "source": "PSV-418",
+    "target": "400-1002/B",
+    "relation": "realisedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/d9cf52ac-de27-4e9c-a86e-5effd9c7bc2f",
+    "source": "E-403",
+    "target": "400-1180/A",
+    "relation": "realisedBy",
+    "state": "proposed"
+  },
+  {
+    "id": "https://eda.example.org/link/dcf01879-79c6-477a-9911-90424ed96ab0",
+    "source": "400-1105/C",
+    "target": "CAE-131",
+    "relation": "analysedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/06896ca6-66a3-4063-a6e9-7df4b9668ff3",
+    "source": "400-1180/A",
+    "target": "CAE-118",
+    "relation": "analysedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/f4e5df02-c2bb-4b71-adaf-db1606be22b6",
+    "source": "REQ-018",
+    "target": "TC-204",
+    "relation": "verifiedBy",
+    "state": "validated"
+  },
+  {
+    "id": "https://eda.example.org/link/132733f1-c365-46d3-a5b6-a92c08e782ea",
+    "source": "REQ-019",
+    "target": "TC-219",
+    "relation": "verifiedBy",
+    "state": "asserted"
+  },
+  {
+    "id": "https://eda.example.org/link/4a4d74c5-0f57-4731-8ac0-ad661ed9725f",
+    "source": "REQ-052",
+    "target": "TC-211",
+    "relation": "verifiedBy",
+    "state": "proposed"
+  }
+]

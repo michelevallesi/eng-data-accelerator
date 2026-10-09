@@ -1,0 +1,32 @@
+[
+  {
+    "Tool": "Polarion",
+    "Role": "requirements and test cases",
+    "URI namespace": "/r/pol/",
+    "Adapter": "pass-through"
+  },
+  {
+    "Tool": "Capella",
+    "Role": "system architecture",
+    "URI namespace": "/r/cap/",
+    "Adapter": "API-backed (EMF)"
+  },
+  {
+    "Tool": "COMOS",
+    "Role": "P&ID and plant tags",
+    "URI namespace": "/r/com/",
+    "Adapter": "API-backed (DEXPI export)"
+  },
+  {
+    "Tool": "Teamcenter",
+    "Role": "BOM, CAD, documents",
+    "URI namespace": "/r/tc/",
+    "Adapter": "API-backed (SOA)"
+  },
+  {
+    "Tool": "Ansys",
+    "Role": "calculation cases",
+    "URI namespace": "/r/cae/",
+    "Adapter": "extraction-backed"
+  }
+]

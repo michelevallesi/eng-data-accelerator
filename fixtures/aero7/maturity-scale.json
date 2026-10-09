@@ -1,0 +1,41 @@
+{
+  "order": {
+    "lifecycle": [
+      "draft",
+      "in-review",
+      "released"
+    ],
+    "fitness-for-use": [
+      "IFR",
+      "IFA",
+      "IFC",
+      "as-built"
+    ],
+    "publication": [
+      "published",
+      "reviewed"
+    ],
+    "promotion": [
+      "promoted",
+      "rejected"
+    ]
+  },
+  "nativeToCanonical": {
+    "lifecycle": {
+      "Draft": "draft",
+      "Preliminary": "draft",
+      "In review": "in-review",
+      "Approved": "released",
+      "Frozen": "released",
+      "Released": "released",
+      "issue 002, inWork 03": "draft"
+    },
+    "publication": {
+      "published": "published"
+    },
+    "promotion": {
+      "promoted": "promoted"
+    }
+  },
+  "note": "Programme configuration, not code (AD-12). Axes are compared only with themselves."
+}

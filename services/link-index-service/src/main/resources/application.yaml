@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: eda-link-index-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/eda}
+    username: ${DB_USER:eda}
+    password: ${DB_PASS:dev}
+  flyway:
+    enabled: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    consumer:
+      group-id: ${EDA_LINK_INDEX_GROUP:eda-link-index}
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.cloudevents.kafka.CloudEventDeserializer
+    producer:
+      acks: all
+      retries: 10
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.cloudevents.kafka.CloudEventSerializer
+      properties:
+        enable.idempotence: true
+    listener:
+      ack-mode: manual
+
+server:
+  port: ${SERVER_PORT:8085}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,readiness
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+
+eda:
+  base-domain: ${EDA_BASE_DOMAIN:https://eda.example.org}
+  fixtures:
+    scenario: ${EDA_FIXTURES_SCENARIO:skid400}
+  link-index:
+    source-id: urn:eda:service:link-index
+    listener-id: eda-link-index-listener
+    outbox-relay-interval-ms: ${EDA_LINK_OUTBOX_RELAY_MS:1000}
+    outbox-relay-initial-delay-ms: ${EDA_LINK_OUTBOX_INITIAL_MS:500}
+    outbox-relay-batch-size: 100
+  kafka:
+    topics:
+      polarion-changes: eda.polarion.changes
+      teamcenter-changes: eda.teamcenter.changes
+      link-state-changed: eda.link.state-changed

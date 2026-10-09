@@ -1,0 +1,286 @@
+@prefix eda: <https://eda.example.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://eda.example.org/r/pol/c9807541-40f8-4402-8fd8-c0694ec48b2f> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-018" ;
+  dcterms:description "nominal flow 45 m³/h ±5%" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-019" ;
+  dcterms:description "max operating pressure 17.2 bar" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/694a7e66-7558-4a08-871b-43c0c78f3ef0> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-024" ;
+  dcterms:description "fluid temperature 5-95 °C" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/6c3eecfc-d9be-494a-86ac-bc61ef8c8755> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-031" ;
+  dcterms:description "redundancy: one standby pump" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/pol/d80b5f5b-f169-4551-81bb-882d8c0f1f14> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-047" ;
+  dcterms:description "noise < 82 dB(A) at 1 m" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Draft" .
+
+<https://eda.example.org/r/pol/a95ffaa0-3658-4adf-b29a-32e748ec17be> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-052" ;
+  dcterms:description "standby pump start within 8 s" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "In review" .
+
+<https://eda.example.org/r/pol/24568879-f38b-4e49-ae39-5914e71d0ec1> a eda:Artefact, eda:Requirement ;
+  dcterms:identifier "REQ-061" ;
+  dcterms:description "wetted material AISI 316L" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/cap/fbd54187-b9b4-4e2f-8e18-baaeca5c2105> a eda:Artefact, eda:LogicalComponent ;
+  dcterms:identifier "LC-03" ;
+  dcterms:description "Transfer fluid" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/9e907d16-3fe2-4f93-9d5c-f18c0b72c98f> a eda:Artefact, eda:LogicalComponent ;
+  dcterms:identifier "LC-07" ;
+  dcterms:description "Ensure service continuity" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> a eda:Artefact, eda:LogicalComponent ;
+  dcterms:identifier "LC-11" ;
+  dcterms:description "Control discharge pressure" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/68d8ca81-3a94-41df-9e19-3b394ea5ca89> a eda:Artefact, eda:PhysicalComponent ;
+  dcterms:identifier "PC-02" ;
+  dcterms:description "Pumping unit" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/cap/1a4dd644-3808-4a58-908b-d06aeef71f42> a eda:Artefact, eda:PhysicalComponent ;
+  dcterms:identifier "PC-05" ;
+  dcterms:description "Control system" ;
+  eda:tool "Capella" .
+
+<https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98> a eda:Artefact, eda:Equipment ;
+  dcterms:identifier "P-401A" ;
+  dcterms:description "duty centrifugal pump" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFC" .
+
+<https://eda.example.org/r/com/b5db3954-98b0-4685-90ce-1336ec4f8433> a eda:Artefact, eda:Equipment ;
+  dcterms:identifier "P-401B" ;
+  dcterms:description "standby centrifugal pump" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFC" .
+
+<https://eda.example.org/r/com/6b90172c-c5ff-4364-9348-6fbcde757e36> a eda:Artefact, eda:Valve ;
+  dcterms:identifier "V-412" ;
+  dcterms:description "check valve on common discharge" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFC" .
+
+<https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e> a eda:Artefact, eda:Valve ;
+  dcterms:identifier "PSV-418" ;
+  dcterms:description "relief valve, set at 18.5 bar" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFA" .
+
+<https://eda.example.org/r/com/0fabadb8-0f82-4dcb-86f4-d6fda32f881f> a eda:Artefact, eda:Instrument ;
+  dcterms:identifier "PT-405" ;
+  dcterms:description "discharge pressure transmitter" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFC" .
+
+<https://eda.example.org/r/com/20a72cbe-e62c-45f2-ba53-76d718626afd> a eda:Artefact, eda:Equipment ;
+  dcterms:identifier "E-403" ;
+  dcterms:description "conditioning heat exchanger" ;
+  eda:tool "COMOS" ;
+  eda:nativeState "IFR" .
+
+<https://eda.example.org/r/tc/134541ba-ff70-4387-91b0-1b518c862ae7> a eda:Artefact, eda:Assembly ;
+  dcterms:identifier "400-1002/B" ;
+  dcterms:description "complete skid" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> a eda:Artefact, eda:Component ;
+  dcterms:identifier "400-1105/C" ;
+  dcterms:description "centrifugal pump, purchased" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/tc/07a782e9-e44b-4b54-bc45-5c8f67475fa0> a eda:Artefact, eda:Component ;
+  dcterms:identifier "400-1180/A" ;
+  dcterms:description "welded baseframe" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "In review" .
+
+<https://eda.example.org/r/tc/1ce4cf3e-e65a-4121-bd7a-4fd7dc981e15> a eda:Artefact, eda:Component ;
+  dcterms:identifier "400-1240/B" ;
+  dcterms:description "electrical panel" ;
+  eda:tool "Teamcenter" ;
+  eda:nativeState "Released" .
+
+<https://eda.example.org/r/cae/ebd62c3d-4893-4914-ba5b-c7806c105974> a eda:Artefact, eda:CalculationCase ;
+  dcterms:identifier "CAE-118" ;
+  dcterms:description "baseframe structural analysis" ;
+  eda:tool "Ansys" ;
+  eda:nativeState "complete" .
+
+<https://eda.example.org/r/cae/b6fa2ae1-acc7-4550-a23a-e074b1193a34> a eda:Artefact, eda:CalculationCase ;
+  dcterms:identifier "CAE-131" ;
+  dcterms:description "CFD manifold pressure drop" ;
+  eda:tool "Ansys" ;
+  eda:nativeState "complete" .
+
+<https://eda.example.org/r/pol/fcf31708-bbb8-470d-a341-3a6e46f7c1bf> a eda:Artefact, eda:TestCase ;
+  dcterms:identifier "TC-204" ;
+  dcterms:description "flow test" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Approved" .
+
+<https://eda.example.org/r/pol/b872f211-d6fb-41e0-bb78-65e5e03b168a> a eda:Artefact, eda:TestCase ;
+  dcterms:identifier "TC-211" ;
+  dcterms:description "standby pump changeover" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Draft" .
+
+<https://eda.example.org/r/pol/56bc89b7-8900-4678-8e18-e7b42ad0beec> a eda:Artefact, eda:TestCase ;
+  dcterms:identifier "TC-219" ;
+  dcterms:description "tightness at 1.5 × PN" ;
+  eda:tool "Polarion" ;
+  eda:nativeState "Approved" .
+
+<https://eda.example.org/r/pol/c9807541-40f8-4402-8fd8-c0694ec48b2f> eda:satisfiedBy <https://eda.example.org/r/cap/fbd54187-b9b4-4e2f-8e18-baaeca5c2105> .
+<https://eda.example.org/link/4ae1fd21-9cd6-4447-a727-c67fb38f0166> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/c9807541-40f8-4402-8fd8-c0694ec48b2f> ;
+  eda:target <https://eda.example.org/r/cap/fbd54187-b9b4-4e2f-8e18-baaeca5c2105> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/pol/6c3eecfc-d9be-494a-86ac-bc61ef8c8755> eda:satisfiedBy <https://eda.example.org/r/cap/9e907d16-3fe2-4f93-9d5c-f18c0b72c98f> .
+<https://eda.example.org/link/48a7ee6a-26d5-4890-814a-ee173c54530e> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/6c3eecfc-d9be-494a-86ac-bc61ef8c8755> ;
+  eda:target <https://eda.example.org/r/cap/9e907d16-3fe2-4f93-9d5c-f18c0b72c98f> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8> eda:satisfiedBy <https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> .
+<https://eda.example.org/link/134a08bb-eba5-4a11-8782-54ec9c5d57e0> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8> ;
+  eda:target <https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/pol/d80b5f5b-f169-4551-81bb-882d8c0f1f14> eda:satisfiedBy <https://eda.example.org/r/cap/68d8ca81-3a94-41df-9e19-3b394ea5ca89> .
+<https://eda.example.org/link/300c558d-cb4c-45c2-90bb-8a9713751fe6> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/d80b5f5b-f169-4551-81bb-882d8c0f1f14> ;
+  eda:target <https://eda.example.org/r/cap/68d8ca81-3a94-41df-9e19-3b394ea5ca89> ;
+  eda:relation eda:satisfiedBy ;
+  eda:validationState eda:proposed .
+
+<https://eda.example.org/r/cap/fbd54187-b9b4-4e2f-8e18-baaeca5c2105> eda:allocatedTo <https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98> .
+<https://eda.example.org/link/9a9b00db-650c-4899-8868-2f45479034e6> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/fbd54187-b9b4-4e2f-8e18-baaeca5c2105> ;
+  eda:target <https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/cap/9e907d16-3fe2-4f93-9d5c-f18c0b72c98f> eda:allocatedTo <https://eda.example.org/r/com/b5db3954-98b0-4685-90ce-1336ec4f8433> .
+<https://eda.example.org/link/79caf780-bede-4d81-82f2-9749f1e67210> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/9e907d16-3fe2-4f93-9d5c-f18c0b72c98f> ;
+  eda:target <https://eda.example.org/r/com/b5db3954-98b0-4685-90ce-1336ec4f8433> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> eda:allocatedTo <https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e> .
+<https://eda.example.org/link/b7d57406-64ea-4bb3-bd5c-21e11f8f2f30> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> ;
+  eda:target <https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> eda:allocatedTo <https://eda.example.org/r/com/0fabadb8-0f82-4dcb-86f4-d6fda32f881f> .
+<https://eda.example.org/link/f75d0897-ab83-4d56-a7ee-9d77708bd49c> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/62b6102a-019a-4d89-9104-2190c5f56e55> ;
+  eda:target <https://eda.example.org/r/com/0fabadb8-0f82-4dcb-86f4-d6fda32f881f> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/cap/68d8ca81-3a94-41df-9e19-3b394ea5ca89> eda:allocatedTo <https://eda.example.org/r/com/20a72cbe-e62c-45f2-ba53-76d718626afd> .
+<https://eda.example.org/link/e073caf6-cce3-4d5c-a9f4-ce20b9da4141> a eda:Link ;
+  eda:source <https://eda.example.org/r/cap/68d8ca81-3a94-41df-9e19-3b394ea5ca89> ;
+  eda:target <https://eda.example.org/r/com/20a72cbe-e62c-45f2-ba53-76d718626afd> ;
+  eda:relation eda:allocatedTo ;
+  eda:validationState eda:proposed .
+
+<https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98> eda:realisedBy <https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> .
+<https://eda.example.org/link/c69f2953-ae3d-4461-ad2f-06cf51df9255> a eda:Link ;
+  eda:source <https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98> ;
+  eda:target <https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> ;
+  eda:relation eda:realisedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/com/b5db3954-98b0-4685-90ce-1336ec4f8433> eda:realisedBy <https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> .
+<https://eda.example.org/link/929fcd10-5c91-4f5c-b58e-a93e8bdd101f> a eda:Link ;
+  eda:source <https://eda.example.org/r/com/b5db3954-98b0-4685-90ce-1336ec4f8433> ;
+  eda:target <https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> ;
+  eda:relation eda:realisedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e> eda:realisedBy <https://eda.example.org/r/tc/134541ba-ff70-4387-91b0-1b518c862ae7> .
+<https://eda.example.org/link/26f3e2af-88ec-4cc8-8593-b3f975a1ebf2> a eda:Link ;
+  eda:source <https://eda.example.org/r/com/88b368ad-feff-4847-9163-8d81ddca389e> ;
+  eda:target <https://eda.example.org/r/tc/134541ba-ff70-4387-91b0-1b518c862ae7> ;
+  eda:relation eda:realisedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/com/20a72cbe-e62c-45f2-ba53-76d718626afd> eda:realisedBy <https://eda.example.org/r/tc/07a782e9-e44b-4b54-bc45-5c8f67475fa0> .
+<https://eda.example.org/link/d9cf52ac-de27-4e9c-a86e-5effd9c7bc2f> a eda:Link ;
+  eda:source <https://eda.example.org/r/com/20a72cbe-e62c-45f2-ba53-76d718626afd> ;
+  eda:target <https://eda.example.org/r/tc/07a782e9-e44b-4b54-bc45-5c8f67475fa0> ;
+  eda:relation eda:realisedBy ;
+  eda:validationState eda:proposed .
+
+<https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> eda:analysedBy <https://eda.example.org/r/cae/b6fa2ae1-acc7-4550-a23a-e074b1193a34> .
+<https://eda.example.org/link/dcf01879-79c6-477a-9911-90424ed96ab0> a eda:Link ;
+  eda:source <https://eda.example.org/r/tc/53c7253e-fec0-44b3-8a7d-88629ebb0a07> ;
+  eda:target <https://eda.example.org/r/cae/b6fa2ae1-acc7-4550-a23a-e074b1193a34> ;
+  eda:relation eda:analysedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/tc/07a782e9-e44b-4b54-bc45-5c8f67475fa0> eda:analysedBy <https://eda.example.org/r/cae/ebd62c3d-4893-4914-ba5b-c7806c105974> .
+<https://eda.example.org/link/06896ca6-66a3-4063-a6e9-7df4b9668ff3> a eda:Link ;
+  eda:source <https://eda.example.org/r/tc/07a782e9-e44b-4b54-bc45-5c8f67475fa0> ;
+  eda:target <https://eda.example.org/r/cae/ebd62c3d-4893-4914-ba5b-c7806c105974> ;
+  eda:relation eda:analysedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/pol/c9807541-40f8-4402-8fd8-c0694ec48b2f> eda:verifiedBy <https://eda.example.org/r/pol/fcf31708-bbb8-470d-a341-3a6e46f7c1bf> .
+<https://eda.example.org/link/f4e5df02-c2bb-4b71-adaf-db1606be22b6> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/c9807541-40f8-4402-8fd8-c0694ec48b2f> ;
+  eda:target <https://eda.example.org/r/pol/fcf31708-bbb8-470d-a341-3a6e46f7c1bf> ;
+  eda:relation eda:verifiedBy ;
+  eda:validationState eda:validated .
+
+<https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8> eda:verifiedBy <https://eda.example.org/r/pol/56bc89b7-8900-4678-8e18-e7b42ad0beec> .
+<https://eda.example.org/link/132733f1-c365-46d3-a5b6-a92c08e782ea> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8> ;
+  eda:target <https://eda.example.org/r/pol/56bc89b7-8900-4678-8e18-e7b42ad0beec> ;
+  eda:relation eda:verifiedBy ;
+  eda:validationState eda:asserted .
+
+<https://eda.example.org/r/pol/a95ffaa0-3658-4adf-b29a-32e748ec17be> eda:verifiedBy <https://eda.example.org/r/pol/b872f211-d6fb-41e0-bb78-65e5e03b168a> .
+<https://eda.example.org/link/4a4d74c5-0f57-4731-8ac0-ad661ed9725f> a eda:Link ;
+  eda:source <https://eda.example.org/r/pol/a95ffaa0-3658-4adf-b29a-32e748ec17be> ;
+  eda:target <https://eda.example.org/r/pol/b872f211-d6fb-41e0-bb78-65e5e03b168a> ;
+  eda:relation eda:verifiedBy ;
+  eda:validationState eda:proposed .

@@ -1,0 +1,13 @@
+{
+  "valid": [
+    "calc-hyd-03-excel.json",
+    "sim-hyd-02-simulink.json",
+    "sim-skid-05-openmodelica.json"
+  ],
+  "invalid": {
+    "free-excel-no-template.json": "TEMPLATE_REQUIRED",
+    "manual-input.json": "INPUT_UNRESOLVED",
+    "no-model-ref.json": "MODEL_REF_REQUIRED",
+    "output-without-unit.json": "UNIT_MISSING"
+  }
+}

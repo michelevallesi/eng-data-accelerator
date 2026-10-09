@@ -1,0 +1,91 @@
+{
+  "envelopeVersion": "1.0",
+  "identity": {
+    "resultId": "CALC-HYD-03",
+    "revision": "1"
+  },
+  "context": {
+    "programme": "AERO-7",
+    "tool": "Excel"
+  },
+  "configuration": {
+    "configurationContext": "GC-AERO7-WIP"
+  },
+  "content": {
+    "outputs": [
+      {
+        "name": "total_mass",
+        "value": 108.5,
+        "unit": "kg"
+      },
+      {
+        "name": "margin",
+        "value": 9.5,
+        "unit": "kg"
+      },
+      {
+        "name": "status",
+        "value": "compliant",
+        "unit": "-"
+      }
+    ],
+    "template": {
+      "id": "EDA-TPL-MASS-BUDGET",
+      "version": "1.0"
+    },
+    "files": [
+      {
+        "path": "mass-budget.xlsx"
+      }
+    ]
+  },
+  "provenance": {
+    "author": "engineer@example.org",
+    "generatedAt": "2026-10-02T10:15:00Z",
+    "modelRef": {
+      "repository": "git:hyd-calcs",
+      "immutableRef": "9c41e07"
+    }
+  },
+  "maturity": {
+    "publication": "published"
+  },
+  "security": {
+    "classification": "internal",
+    "exportControl": "none"
+  },
+  "lineage": {
+    "inputs": [
+      {
+        "uri": "https://eda.example.org/r/pol/9531985d-5d9d-49f8-9818-e811892f902b",
+        "nativeId": "HYD-REQ-041",
+        "version": "3"
+      },
+      {
+        "uri": "https://eda.example.org/r/tc/0fd630f1-f29d-4da9-953f-48f1a09f76b5",
+        "nativeId": "29-4410-01",
+        "version": "A"
+      },
+      {
+        "uri": "https://eda.example.org/r/tc/0cb1e29c-658c-4a14-95e6-0af593bd04cf",
+        "nativeId": "29-4520-03",
+        "version": "B"
+      },
+      {
+        "uri": "https://eda.example.org/r/tc/8e81973e-0bec-47b0-b898-d190f9ebdacc",
+        "nativeId": "29-4610-02",
+        "version": "A"
+      },
+      {
+        "uri": "https://eda.example.org/r/tc/6b4cb242-4a23-4596-a217-beaddbc496cb",
+        "nativeId": "29-4705-01",
+        "version": "A"
+      },
+      {
+        "uri": "https://eda.example.org/r/tc/a170b338-3926-4059-b28c-105d1fb17c23",
+        "nativeId": "29-4000-00/C",
+        "version": "C"
+      }
+    ]
+  }
+}

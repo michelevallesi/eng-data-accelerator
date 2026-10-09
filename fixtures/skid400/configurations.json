@@ -1,0 +1,17 @@
+[
+  {
+    "Global configuration": "GC-2026-Q2",
+    "Content": "design baseline frozen on 14 April",
+    "State": "baseline"
+  },
+  {
+    "Global configuration": "GC-2026-Q3",
+    "Content": "current working stream",
+    "State": "stream"
+  },
+  {
+    "Global configuration": "GC-FAT",
+    "Content": "baseline for the factory acceptance test",
+    "State": "baseline"
+  }
+]

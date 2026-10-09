@@ -1,0 +1,13 @@
+@prefix sh:        <http://www.w3.org/ns/shacl#> .
+@prefix dcterms:   <http://purl.org/dc/terms/> .
+@prefix oslc_rm:   <http://open-services.net/ns/rm#> .
+
+<https://eda.example.org/shapes/polarion-requirement#RequirementShape>
+    a sh:NodeShape ;
+    sh:targetClass oslc_rm:Requirement ;
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "a Requirement must declare dcterms:identifier"
+    ] .

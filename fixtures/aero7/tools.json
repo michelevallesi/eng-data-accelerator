@@ -1,0 +1,32 @@
+[
+  {
+    "Tool": "Polarion",
+    "Role": "system requirements and test procedures",
+    "URI namespace": "/r/pol/",
+    "Access": "OSLC pass-through"
+  },
+  {
+    "Tool": "Capella",
+    "Role": "functional and logical architecture",
+    "URI namespace": "/r/cap/",
+    "Access": "API-backed"
+  },
+  {
+    "Tool": "Teamcenter",
+    "Role": "PLM backbone: product, configuration, Change",
+    "URI namespace": "/r/tc/",
+    "Access": "MCP-backed"
+  },
+  {
+    "Tool": "Ansys",
+    "Role": "structural and fluid-dynamics calculations",
+    "URI namespace": "/r/cae/",
+    "Access": "intentional publication"
+  },
+  {
+    "Tool": "CSDB S1000D",
+    "Role": "technical documentation information modules",
+    "URI namespace": "/r/csdb/",
+    "Access": "extraction-backed"
+  }
+]

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: eda-projection-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    consumer:
+      group-id: ${EDA_PROJECTION_GROUP:eda-projection}
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.cloudevents.kafka.CloudEventDeserializer
+    listener:
+      ack-mode: manual
+
+server:
+  port: ${SERVER_PORT:8084}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,readiness
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+
+eda:
+  projection:
+    fuseki:
+      base-url: ${EDA_FUSEKI_URL:http://localhost:3030}
+      dataset: ${EDA_FUSEKI_DATASET:eda}
+    prov-graph: urn:eda:prov
+    listener-id: eda-projection-listener
+  kafka:
+    topics:
+      polarion-changes: eda.polarion.changes
+      teamcenter-changes: eda.teamcenter.changes

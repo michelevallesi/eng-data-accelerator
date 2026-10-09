@@ -1,0 +1,51 @@
+{
+  "envelopeVersion": "1.0",
+  "identity": {
+    "resultId": "SIM-SKID-05",
+    "revision": "1"
+  },
+  "context": {
+    "programme": "SKID-400",
+    "tool": "OpenModelica"
+  },
+  "configuration": {
+    "configurationContext": "GC-2026-Q3"
+  },
+  "content": {
+    "outputs": [
+      {
+        "name": "peak_pressure",
+        "value": 16.9
+      }
+    ]
+  },
+  "provenance": {
+    "author": "engineer@example.org",
+    "generatedAt": "2026-10-02T10:15:00Z",
+    "modelRef": {
+      "repository": "git:skid-models",
+      "immutableRef": "b77d310"
+    }
+  },
+  "maturity": {
+    "publication": "published"
+  },
+  "security": {
+    "classification": "internal",
+    "exportControl": "none"
+  },
+  "lineage": {
+    "inputs": [
+      {
+        "uri": "https://eda.example.org/r/pol/7d33b7bc-90e1-461c-97c1-8845d01a68d8",
+        "nativeId": "REQ-019",
+        "version": "3"
+      },
+      {
+        "uri": "https://eda.example.org/r/com/de965710-5371-436b-9799-291b193ffc98",
+        "nativeId": "P-401A",
+        "version": "2"
+      }
+    ]
+  }
+}

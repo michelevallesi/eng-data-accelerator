@@ -1,0 +1,16 @@
+target/
+.m2/
+.mvn/
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+.DS_Store
+*.log
+.env
+.env.local
+
+# Platform-specific stray files.
+NUL
+*.docx

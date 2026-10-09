@@ -1,0 +1,17 @@
+[
+  {
+    "Configuration": "GC-AERO7-PDR",
+    "Content": "baseline at the preliminary design review",
+    "State": "baseline"
+  },
+  {
+    "Configuration": "GC-AERO7-CDR",
+    "Content": "baseline at the critical design review",
+    "State": "in preparation"
+  },
+  {
+    "Configuration": "GC-AERO7-WIP",
+    "Content": "current working stream",
+    "State": "stream"
+  }
+]
